@@ -1,0 +1,19 @@
+apiVersion: k3d.io/v1alpha3
+kind: Simple
+name: mycluster
+servers: 1
+agents: 1
+# kubeAPI:
+#   host: "mycluster.k3d.local"
+#   hostIP: "127.0.0.1"
+#   hostPort: "6445"
+ports:
+  - port: 8081:30080
+    nodeFilters:
+      - loadbalancer
+  - port: 80:31080
+    nodeFilters:
+      - loadbalancer
+  - port: 443:32080
+    nodeFilters:
+      - loadbalancer
